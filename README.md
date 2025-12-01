@@ -1,73 +1,23 @@
-# React + TypeScript + Vite
+# AI Resume Tailor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The AI Resume Tailor is a browser-based single-page application designed to empower job seekers by efficiently customizing their resumes for specific job postings. It automates resume analysis and rewriting using large language models, significantly reducing manual effort and enhancing application success rates.
 
-Currently, two official plugins are available:
+## Key Features:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **Effortless Customization:** Input your original resume (PDF, DOCX, or paste text) and a job description.
+*   **AI-Powered Generation:** Utilizes OpenAI's language models to generate tailored resumes, along with clear explanations of changes and a side-by-side diff viewer.
+*   **Secure API Key Management:** Your OpenAI API key is securely stored client-side in local storage.
+*   **Version Control & Export:** Manage multiple tailored resume versions and export them as Markdown, PDF, or DOCX.
+*   **User-Friendly Interface:** A responsive two-column layout for seamless input, generation, and review.
 
-## React Compiler
+## Tech Stack Highlights:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **Frontend:** Vite, React, TypeScript
+*   **State Management:** Zustand
+*   **Styling:** Tailwind CSS
+*   **AI Integration:** OpenAI API
+*   **Document Handling:** `pdfjs-dist`, `mammoth`, `@react-pdf/renderer`, `docx`
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Note:** This application is client-side only. Your data and API key are stored locally in your browser's local storage and are transmitted directly to the OpenAI API during generation.
